@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.kuali.rice;
+package com.niesens.clausworkshop;
 
 import java.net.URL;
 import java.net.HttpURLConnection;

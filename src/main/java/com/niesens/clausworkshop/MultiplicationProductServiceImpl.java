@@ -13,17 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kuali.rice;
+package com.niesens.clausworkshop;
 
 /**
  * Kuali Rice ArcheType Help
  *
- * A unit test implementation.
+ * This is an example of a service implementation.
  *
- * Test for {@link AdditionProductServiceImpl}.
+ * An implementation of the ProductService that uses multiplication.
  */
-public class AdditionProductServiceImplTest extends AbstractProductServiceImplTest {
-    public ProductService createService() {
-        return new AdditionProductServiceImpl();
+public class MultiplicationProductServiceImpl implements ProductService {
+    @Override
+    public Integer product(Integer left, Integer right) {
+        if (left == null) {
+            throw new IllegalArgumentException("left is null");
+        }
+
+        if (right == null) {
+            throw new IllegalArgumentException("right is null");
+        }
+
+        return left * right;
     }
 }

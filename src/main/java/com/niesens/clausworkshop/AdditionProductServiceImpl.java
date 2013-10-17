@@ -13,18 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.kuali.rice;
+package com.niesens.clausworkshop;
 
 /**
  * Kuali Rice ArcheType Help
  *
  * This is an example of a service implementation.
  *
- * An implementation of the ProductService that uses multiplication.
+ * An implementation of the ProductService that uses addition.
  */
-public class MultiplicationProductServiceImpl implements ProductService {
+public class AdditionProductServiceImpl implements ProductService {
     @Override
     public Integer product(Integer left, Integer right) {
+
         if (left == null) {
             throw new IllegalArgumentException("left is null");
         }
@@ -33,6 +34,13 @@ public class MultiplicationProductServiceImpl implements ProductService {
             throw new IllegalArgumentException("right is null");
         }
 
-        return left * right;
+        final int absRight = Math.abs(right);
+
+        int sum = 0;
+        for (int i = 0; i < absRight; i++) {
+            sum += left;
+        }
+
+        return absRight != right.intValue() ? -sum : sum;
     }
 }
