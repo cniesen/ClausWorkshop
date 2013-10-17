@@ -9,7 +9,7 @@
     
     <bean id="Request-InquiryView" parent="Uif-InquiryView">
         <property name="headerText" value="Request Inquiry"/>
-        <property name="dataObjectClassName" value="org.kuali.rice.Request"/>
+        <property name="dataObjectClassName" value="com.niesens.clausworkshop.Request"/>
         <property name="items">
             <list>
                 <bean parent="Uif-Disclosure-GridSection">
@@ -32,7 +32,7 @@
     
     <bean id="Request-LookupView" parent="Uif-LookupView">
         <property name="headerText" value="Request Lookup"/>
-        <property name="dataObjectClassName" value="org.kuali.rice.Request"/>
+        <property name="dataObjectClassName" value="com.niesens.clausworkshop.Request"/>
         <property name="criteriaFields">
             <list>
                 <bean parent="Uif-LookupCriteriaInputField" p:propertyName="beneficiary"/>

@@ -7,7 +7,7 @@
 
     <bean id="Request" parent="Request-parentBean"/>
     <bean id="Request-parentBean" abstract="true" parent="DataObjectEntry">
-        <property name="dataObjectClass" value="org.kuali.rice.Request"/>
+        <property name="dataObjectClass" value="com.niesens.clausworkshop.Request"/>
         <property name="objectLabel" value="Request"/>
         <property name="attributes">
             <list>

@@ -14,7 +14,7 @@
     </sequence-manager>
   </jdbc-connection-descriptor>
 
-  <class-descriptor class="org.kuali.rice.Request" table="CW_REQUEST_T">
+  <class-descriptor class="com.niesens.clausworkshop.Request" table="CW_REQUEST_T">
     <field-descriptor name="id" column="ID" jdbc-type="BIGINT" primarykey="true"
                       autoincrement="true" sequence-name="CW_REQUEST_S"/>
     <field-descriptor name="date" column="DATE" jdbc-type="DATE"/>

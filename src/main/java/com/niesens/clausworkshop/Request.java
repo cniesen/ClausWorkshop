@@ -1,4 +1,4 @@
-package org.kuali.rice;
+package com.niesens.clausworkshop;
 
 import java.util.Date;
 
