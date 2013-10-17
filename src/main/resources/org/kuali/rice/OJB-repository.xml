@@ -1,0 +1,27 @@
+<descriptor-repository version="1.0">
+
+  <jdbc-connection-descriptor
+          jcd-alias="dataSource-samplepp"
+          default-connection="false"
+          jdbc-level="3.0"
+          eager-release="false"
+          batch-mode="false"
+          useAutoCommit="0"
+          ignoreAutoCommitExceptions="false">
+    <object-cache class="org.apache.ojb.broker.cache.ObjectCachePerBrokerImpl"/>
+    <sequence-manager className="org.kuali.rice.core.framework.persistence.ojb.ConfigurableSequenceManager">
+      <attribute attribute-name="property.prefix" attribute-value="datasource.ojb.sequenceManager"/>
+    </sequence-manager>
+  </jdbc-connection-descriptor>
+
+  <class-descriptor class="org.kuali.rice.Request" table="CW_REQUEST_T">
+    <field-descriptor name="id" column="ID" jdbc-type="BIGINT" primarykey="true"
+                      autoincrement="true" sequence-name="CW_REQUEST_S"/>
+    <field-descriptor name="date" column="DATE" jdbc-type="DATE"/>
+    <field-descriptor name="beneficiary" column="BENEFICIARY" jdbc-type="VARCHAR"/>
+    <field-descriptor name="description" column="DESCRIPTION" jdbc-type="VARCHAR"/>
+
+    <field-descriptor name="versionNumber" column="VER_NBR" jdbc-type="BIGINT" locking="true"/>
+    <field-descriptor name="objectId" column="OBJ_ID" jdbc-type="VARCHAR" indexed="true"/>
+  </class-descriptor>
+</descriptor-repository>

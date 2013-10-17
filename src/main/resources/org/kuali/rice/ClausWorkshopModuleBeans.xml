@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="ClausWorkshopModuleConfiguration" class="org.kuali.rice.krad.bo.ModuleConfiguration">
+        <property name="namespaceCode" value="CW"/>
+        <property name="initializeDataDictionary" value="true"/>
+        <property name="dataDictionaryPackages">
+            <list>
+                <value>org/kuali/rice/datadictionary</value>
+            </list>
+        </property>
+        <property name="databaseRepositoryFilePaths">
+            <list>
+                <value>org/kuali/rice/OJB-repository.xml</value>
+            </list>
+        </property>
+        <property name="packagePrefixes">
+            <list>
+                <value>org.kuali.rice</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="ClausWorkshopModuleService" class="org.kuali.rice.krad.service.impl.ModuleServiceBase">
+        <property name="moduleConfiguration" ref="ClausWorkshopModuleConfiguration"/>
+    </bean>
+    
+</beans>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="Request" parent="Request-parentBean"/>
+    <bean id="Request-parentBean" abstract="true" parent="DataObjectEntry">
+        <property name="dataObjectClass" value="org.kuali.rice.Request"/>
+        <property name="objectLabel" value="Request"/>
+        <property name="attributes">
+            <list>
+                <ref bean="Request-id"/>
+                <ref bean="Request-date"/>
+                <ref bean="Request-beneficiary"/>
+                <ref bean="Request-description"/>
+            </list>
+        </property>
+        <property name="titleAttribute" value="id"/>
+    </bean>
+
+    <!-- Attribute Definitions -->
+    
+    <bean id="Request-id" parent="Request-id-parentBean"/>
+    <bean id="Request-id-parentBean" abstract="true" parent="AttributeDefinition">
+        <property name="name" value="id"/>
+        <property name="label" value="Request ID"/>
+        <property name="shortLabel" value="ID"/>
+        <property name="maxLength" value="14"/>
+        <property name="validCharactersConstraint">
+            <bean parent="NumericPatternConstraint"/>
+        </property>
+        <property name="controlField">
+            <bean parent="Uif-SmallTextControl"/>
+        </property>
+        <property name="required" value="true"/>
+    </bean>
+
+    <bean id="Request-date" parent="Request-date-parentBean"/>
+    <bean id="Request-date-parentBean" abstract="true" parent="AttributeDefinition">
+        <property name="name" value="date"/>
+        <property name="label" value="Request Date"/>
+        <property name="shortLabel" value="Date"/>
+        <property name="validCharactersConstraint">
+            <bean parent="DatePatternConstraint"/>
+        </property>
+        <property name="controlField">
+            <bean parent="Uif-DateControl"/>
+        </property>
+        <property name="required" value="true"/>
+    </bean>
+
+    <bean id="Request-beneficiary" parent="Request-beneficiary-parentBean"/>
+    <bean id="Request-beneficiary-parentBean" abstract="true" parent="AttributeDefinition">
+        <property name="name" value="beneficiary"/>
+        <property name="label" value="Beneficiary"/>
+        <property name="shortLabel" value="Beneficiary"/>
+        <property name="maxLength" value="100"/>
+        <property name="validCharactersConstraint">
+            <bean parent="AnyCharacterPatternConstraint" p:allowWhitespace="true"/>
+        </property>
+        <property name="controlField">
+            <bean parent="Uif-TextControl" p:size="50"/>
+        </property>
+        <property name="required" value="true"/>
+    </bean>
+
+    <bean id="Request-description" parent="Request-description-parentBean"/>
+    <bean id="Request-description-parentBean" abstract="true" parent="AttributeDefinition">
+        <property name="name" value="description"/>
+        <property name="label" value="Request Description"/>
+        <property name="shortLabel" value="Description"/>
+        <property name="maxLength" value="250"/>
+        <property name="controlField">
+            <bean parent="Uif-MediumTextAreaControl"/>
+        </property>
+        <property name="required" value="true"/>
+    </bean>
+    
+</beans>

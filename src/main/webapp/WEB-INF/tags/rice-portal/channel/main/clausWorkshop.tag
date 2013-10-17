@@ -26,7 +26,7 @@ This file contains custom application specific portal content.
 <div class="body">
 
   <ul class="chan">
-      <li>insert custom content here</li>
+      <li><portal:portalLink displayTitle="true" title="Request" url="${ConfigProperties.krad.url}/lookup?methodToCall=start&viewId=Request-LookupView&showMaintenanceLinks=true&returnLocation=${ConfigProperties.application.url}/portal.do&hideReturnLink=true" /></li>
   </ul>
 
 </div>

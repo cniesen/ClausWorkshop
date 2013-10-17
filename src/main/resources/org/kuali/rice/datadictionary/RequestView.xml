@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <!-- Inquiry View -->
+    
+    <bean id="Request-InquiryView" parent="Uif-InquiryView">
+        <property name="headerText" value="Request Inquiry"/>
+        <property name="dataObjectClassName" value="org.kuali.rice.Request"/>
+        <property name="items">
+            <list>
+                <bean parent="Uif-Disclosure-GridSection">
+                    <property name="headerText" value="Request Details"/>
+                    <property name="layoutManager.numberOfColumns" value="2"/>
+                    <property name="items">
+                        <list>
+                            <bean parent="Uif-DataField" p:propertyName="id"/>
+                            <bean parent="Uif-DataField" p:propertyName="date"/>
+                            <bean parent="Uif-DataField" p:propertyName="beneficiary"/>
+                            <bean parent="Uif-DataField" p:propertyName="description"/>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!--  Lookup View -->
+    
+    <bean id="Request-LookupView" parent="Uif-LookupView">
+        <property name="headerText" value="Request Lookup"/>
+        <property name="dataObjectClassName" value="org.kuali.rice.Request"/>
+        <property name="criteriaFields">
+            <list>
+                <bean parent="Uif-LookupCriteriaInputField" p:propertyName="beneficiary"/>
+                <bean parent="Uif-LookupCriteriaInputField" p:propertyName="date"/>
+            </list>
+        </property>
+        <property name="resultFields">
+            <list>
+                <bean parent="Uif-DataField" p:propertyName="id"/>
+                <bean parent="Uif-DataField" p:propertyName="date"/>
+                <bean parent="Uif-DataField" p:propertyName="beneficiary"/>
+            </list>
+        </property>
+    </bean>
+    
+</beans>
