@@ -48,4 +48,27 @@
         </property>
     </bean>
     
+    <!-- Maintenance View -->
+    
+    <bean id="Request-MaintenanceView" parent="Uif-MaintenanceView">
+        <property name="headerText" value="Request Maintenance"/>
+        <property name="dataObjectClassName" value="com.niesens.clausworkshop.Request"/>
+        <property name="items">
+          <list merge="true">
+            <bean parent="Request-Details"/>
+          </list>
+        </property>
+    </bean>
+    
+    <bean id="Request-Details" parent="Uif-Disclosure-GridSection">
+        <property name="headerText" value="PeopleFlow Summary"/>
+        <property name="items">
+            <list>
+                <bean parent="Uif-DataField" p:propertyName="id" p:render="@{#dp.id != null}"/>
+                <bean parent="Uif-InputField" p:propertyName="date" />
+                <bean parent="Uif-InputField" p:propertyName="beneficiary"/>
+                <bean parent="Uif-InputField" p:propertyName="description"/>
+            </list>
+        </property>
+    </bean>
 </beans>

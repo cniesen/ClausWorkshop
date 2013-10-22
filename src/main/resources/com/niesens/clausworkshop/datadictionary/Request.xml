@@ -34,7 +34,6 @@
         <property name="controlField">
             <bean parent="Uif-SmallTextControl"/>
         </property>
-        <property name="required" value="true"/>
     </bean>
 
     <bean id="Request-date" parent="Request-date-parentBean"/>
@@ -42,9 +41,6 @@
         <property name="name" value="date"/>
         <property name="label" value="Request Date"/>
         <property name="shortLabel" value="Date"/>
-        <property name="validCharactersConstraint">
-            <bean parent="DatePatternConstraint"/>
-        </property>
         <property name="controlField">
             <bean parent="Uif-DateControl"/>
         </property>
@@ -76,6 +72,18 @@
             <bean parent="Uif-MediumTextAreaControl"/>
         </property>
         <property name="required" value="true"/>
+    </bean>
+    
+    <!-- Maintenance Document Entry -->
+    <bean id="RequestMaintenanceDocument" parent="RequestMaintenanceDocument-parentBean"/>
+    <bean id="RequestMaintenanceDocument-parentBean" abstract="true" parent="uifMaintenanceDocumentEntry">
+        <property name="dataObjectClass" value="com.niesens.clausworkshop.Request"/>
+	    <property name="lockingKeys">
+	      <list>
+	        <value>id</value>
+	      </list>
+	    </property>
+	    <property name="documentTypeName" value="PeopleFlowMaintenanceDocument"/>
     </bean>
     
 </beans>
